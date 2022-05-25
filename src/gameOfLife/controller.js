@@ -16,7 +16,7 @@ export const controller = model => {
   document.getElementById("size-submit").addEventListener("click", () => {
     const width = parseInt(document.getElementById("width").value);
     const height = parseInt(document.getElementById("height").value);
-    model.reset({ width, height });
+    model.reset(width, height);
   }
   );
 

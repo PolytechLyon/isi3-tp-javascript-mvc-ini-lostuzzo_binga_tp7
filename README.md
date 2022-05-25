@@ -30,9 +30,9 @@ Utiliser un outils comme Dia pour le représenter. Je veux **votre** schéma, pa
 
 2. Expliquer ce pattern en complétant ce texte.
 
-Le pattern MVC, vise à découper le `.......`, de la `.......` et du `.......` afin de rendre le code plus `.......`.
+Le pattern MVC, vise à découper le `controlleur`, de la `vue` et du `modèle` afin de rendre le code plus `structuré`.
 Les responsabilités ne sont alors plus `.......`.
-On peut ainsi changer l'aspect visuel de son application sans pour autant impacter le `.......`.
+On peut ainsi changer l'aspect visuel de son application sans pour autant impacter le `fonctionnement de celle-ci`.
 
 3. Expliquer dans quels cas on doit privilégier le pattern MVC.
 
@@ -50,8 +50,8 @@ Cela relève du design pattern Observer/Observable.
 
 1. Expliquer votre implémentation:
 
-L'usage d'un callback permet ici de `.......` afin de dire à la _View_ de se redessiner.
-L'objet _Model_ n'a pas de lien avec `.......` pourtant grâce à la `.......` il peut notifier la `.......`.
+L'usage d'un callback permet ici de `de mettre a jour les observeurs` afin de dire à la _View_ de se redessiner.
+L'objet _Model_ n'a pas de lien avec `l'utilisateur` pourtant grâce à la `liste d'observeurs` il peut notifier la `vue`.
 
 2. Insérer ici un UML montrant le pattern Observer/Observable lié aux objets de ce TP.
 

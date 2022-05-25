@@ -5,7 +5,7 @@ import {
   SQUARE,
   RENDER_INTERVAL
 } from "./constants.js";
-import {drawGame} from "./view.js";
+import {drawGame, changeSize} from "./view.js";
 
 export class Model {
   constructor() {
@@ -15,10 +15,10 @@ export class Model {
     this.observers = [];
   }
 
-  init(size={width:GAME_SIZE, height: GAME_SIZE}) {
-    this.width = size.width;
-    this.height = size.height;
-    console.log("got new size", size);
+  init(width=GAME_SIZE, height=GAME_SIZE) {
+    this.width = width;
+    this.height = height;
+    console.log("got new size", {width, height, classWidth: this.width, classHeight: this.height});
     this.state = Array.from(new Array(this.height), () =>
       Array.from(new Array(this.width), () => CELL_STATES.NONE)
     );
@@ -26,26 +26,30 @@ export class Model {
       this.state[y][x] = CELL_STATES.ALIVE;
     });
     this.updated();
+    console.log({state: this.state});
   }
 
   run(date = new Date().getTime()) {
     this.raf = requestAnimationFrame(() => {
       const currentTime = new Date().getTime();
       if (currentTime - date > RENDER_INTERVAL) {
-
+        const newMap = Array.from(new Array(this.height), () =>
+          Array.from(new Array(this.width), () => CELL_STATES.NONE)
+        );
         for (let i = 0; i < this.height; i++) {
           for (let j = 0; j < this.width; j++) {
             const nbAlive = this.aliveNeighbours(j, i);
             if (this.state[j][i] === CELL_STATES.ALIVE) {
+              newMap[j][i] = CELL_STATES.ALIVE;
               if (nbAlive < 2 || nbAlive > 3) {
-                this.state[j][i] = CELL_STATES.DEAD;
+                newMap[j][i] = CELL_STATES.DEAD;
               }
             } else if (nbAlive === 3) {
-              this.state[j][i] = CELL_STATES.ALIVE;
+              newMap[j][i] = CELL_STATES.ALIVE;
             }
           }
         }
-
+        this.state = newMap;
         this.updated();
         this.run(currentTime);
       } else {
@@ -61,9 +65,9 @@ export class Model {
     this.updated();
   }
 
-  reset(size={width:GAME_SIZE, height: GAME_SIZE}) {
+  reset(width, height) {
     this.stop();
-    this.init(size);
+    this.init(width, height);
     this.updated()
   }
 
@@ -76,14 +80,18 @@ export class Model {
       ? 1
       : 0;
   }
-  aliveNeighbours(x, y) {
+  aliveNeighbours(y, x) {
     let number = 0;
     for (let i = -1; i <= 1; i++) {
       for (let j = -1; j <= 1; j++) {
+        if (i === 0 && j === 0) {
+          continue;
+        }
+        console.log({x, y, i, j, isCellAlive: this.isCellAlive(x + j, y + i)});
         number += this.isCellAlive(x + i, y + j);
       }
     }
-    return this.isCellAlive(x, y) ?  number - 1 : number;
+    return number
   }
 
   updated() {
