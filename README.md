@@ -6,7 +6,7 @@
 
 Nom/Prénom: `Binga Thomas - Lostuzzo Tom`
 
-Lien du codesandbox: `.......`
+Lien du codesandbox: `Impossible de creer le codesandbox`
 
 > Pour générer un codesandbox associé à votre code, [suivre cette doc](https://codesandbox.io/docs/importing#import-from-github).
 
@@ -31,7 +31,7 @@ Utiliser un outils comme Dia pour le représenter. Je veux **votre** schéma, pa
 2. Expliquer ce pattern en complétant ce texte.
 
 Le pattern MVC, vise à découper le `controlleur`, de la `vue` et du `modèle` afin de rendre le code plus `structuré`.
-Les responsabilités ne sont alors plus `.......`.
+Les responsabilités ne sont alors plus `regroupées`.
 On peut ainsi changer l'aspect visuel de son application sans pour autant impacter le `fonctionnement de celle-ci`.
 
 3. Expliquer dans quels cas on doit privilégier le pattern MVC.
