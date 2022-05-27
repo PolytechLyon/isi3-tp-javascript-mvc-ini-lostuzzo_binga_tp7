@@ -6,7 +6,7 @@
 
 Nom/Prénom: `Binga Thomas - Lostuzzo Tom`
 
-Lien du codesandbox: `Impossible de creer le codesandbox`
+Lien du codesandbox: `https://codesandbox.io/s/github/PolytechLyon/isi3-tp-javascript-mvc-ini-lostuzzo_binga_tp7`
 
 > Pour générer un codesandbox associé à votre code, [suivre cette doc](https://codesandbox.io/docs/importing#import-from-github).
 
@@ -35,6 +35,8 @@ Les responsabilités ne sont alors plus `regroupées`.
 On peut ainsi changer l'aspect visuel de son application sans pour autant impacter le `fonctionnement de celle-ci`.
 
 3. Expliquer dans quels cas on doit privilégier le pattern MVC.
+Il faut privilegier le pattern MVC lorsqu'on souhaite séparer concretement ce que l'utilisateur voit, de la logique de l'application. Cela apporte une meilleure organisation du code ainsi qu'une possibilité de réutiliser celui-ci.
+Cela devient vraiment très utile voire indispensable dans de gros projets. 
 
 ## À faire (obligatoire)
 
